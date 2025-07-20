@@ -6,7 +6,6 @@
 class Solution(object):
     def searchInsert(self, nums, target):
         middle_index = len(nums) // 2
-        print(nums, middle_index)
         if len(nums) == 1:
             return 1 if target > nums[0] else 0
         if nums[middle_index] == target:
