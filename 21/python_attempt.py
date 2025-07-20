@@ -25,13 +25,10 @@ class Solution(object):
                 new_list.next = ListNode(val=list1.val)
                 list1 = list1.next
                 new_list = new_list.next
-        while list1 is not None:
-            new_list.next = ListNode(val=list1.val)
-            list1 = list1.next
-            new_list = new_list.next
-        while list2 is not None:
-            new_list.next = ListNode(val=list2.val)
-            list2 = list2.next
+        non_empty_list = list1 if list2 is None else list2
+        while non_empty_list is not None:
+            new_list.next = ListNode(val=non_empty_list.val)
+            non_empty_list = non_empty_list.next
             new_list = new_list.next
         return first_node.next
 
