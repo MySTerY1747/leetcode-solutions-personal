@@ -5,13 +5,16 @@
 
 class Solution(object):
     def searchInsert(self, nums, target):
-        middle = len(nums) // 2
-        if nums[middle] == target:
-            return middle
-        elif nums[middle] > target:
-            self.searchInsert(nums[:middle], target)
+        middle_index = len(nums) // 2
+        print(nums, middle_index)
+        if len(nums) == 1:
+            return 1 if target > nums[0] else 0
+        if nums[middle_index] == target:
+            return middle_index
+        elif target < nums[middle_index]:
+            return self.searchInsert(nums[:middle_index], target)
         else:
-            self.searchInsert(nums[middle:], target)
+            return middle_index + self.searchInsert(nums[middle_index:], target)
 
 
 def test_cases():
